@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from .forms import RegistrationForm,ProfileForm,BussinessForm
 from .models import Occupants,Neighborhood,Bussiness
 
@@ -14,10 +14,12 @@ def signup(request):
     return render(request,'registration/registration_form.html',{'form':form})
 
 def profile(request):
-    user = request.user
-    businesses= Business.objects.filter(owner=user)
+    #user = request.user
+    user_object = get_object_or_404( pk=user)
+    businesses= Bussiness.objects.filter(owner=user)
     prof = Occupants.objects.get(name__id=user.id)
     return render(request,'profile.html',{'user':user,'prof':prof,'businesses':businesses})
+
 
 def edit_profile(request):
     user = request.user
@@ -63,7 +65,7 @@ def neighborhood_details(request):
 
 def business(request):
     user = Occupants.objects.get(name=request.user.id)
-    business= Business.objects.all().filter(neighborhood=user.neighborhood)
+    business= Bussiness.objects.all().filter(neighborhood=user.neighborhood)
     return render(request,'business.html',{'business':business})
 
 def add_business(request):
