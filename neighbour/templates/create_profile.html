@@ -4,14 +4,14 @@
 <div class="container bg-light">
   <div class="row">
     <div class="col-md-6">
-      <!-- <h1>Please Create a profile to get started.</h1> -->
-      <form action="{% url 'edit_profile'%} " method="post" enctype="multipart/form-data">
+      <h1>Please Create a profile to get started.</h1>
+     <form action="{% url 'edit_profile'%} " method="post" enctype="multipart/form-data">
         {% csrf_token%}
-        {% bootstrap_form form%}
+         {% bootstrap_form form%}
         <input type="submit" value="Submit">
-        <input type='hidden' name='next' value='{%url "profile"%} '>
-      </form>
+        <input type='hidden' name='next' value='{%url "profile"%}'>
+      </form> --> -->
     </div>
   </div>
 </div>
-{% endblock%}
+{% endblock%} -->
