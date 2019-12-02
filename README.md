@@ -21,7 +21,7 @@ As a user, You will:
 7. Only view details of a single neighborhood.
 
 ## Live link at: 
-https://neighbourhoodjess.herokuapp.com/
+https://neighbourhoodjess.herokuapp.com/login/?next=/
 
 
 ### Installing
