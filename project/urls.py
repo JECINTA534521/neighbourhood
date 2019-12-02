@@ -13,25 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
+
 from django.conf.urls import url,include
 from django.contrib import admin
-from django.conf.urls.static import static
+from neighbour import views as user_views
+from django.contrib.auth import views as auth_views
 from django.conf import settings
-
-from django.utils.translation import ugettext as _, ungettext
-from django.core.exceptions import ValidationError
-from django.contrib.auth.views import login,logout
-from neighbour import urls
-
+from django.conf.urls.static import static
+from rest_framework.urlpatterns import format_suffix_patterns
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',login,name='login'),
-    url(r'',include(urls)),
-    # url(r'^accounts/',include('registration.backends.simple.urls')),
-    url(r'^logout/$',logout,name='logout'),
+    url(r'^',include('neighbour.urls')),
+    url(r'^signup$',user_views.register,name='register'),
+    url(r'^login/$', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    url(r'profile/$', user_views.profile, name='profile'),
+    url('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout' ),
 
-    
 ]
-urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

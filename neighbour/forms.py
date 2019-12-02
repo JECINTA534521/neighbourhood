@@ -1,29 +1,61 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from .models import Neighborhood,Occupants,Bussiness
 from django import forms
+from .models import Neighbourhood, Post,Business,Comment
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from .models import Profile
+# from user.models import Profile
 
-class RegistrationForm(UserCreationForm):
+class CommunityModelForm(forms.ModelForm):
+    
     class Meta:
-        model=User
-        fields= ['username','email','password1','password2']
-        help_texts = {
-            'username': '',
-            'email': '',
-            'password1':'',
-            'password2':''
-        }
-        help_texts={'username':'','email':'','password1':'','password2':''}
+        model = Neighbourhood
+        fields = [ 'name','location']
 
-
-class ProfileForm(forms.ModelForm):
+class PostModelForm(forms.ModelForm):
+    
     class Meta:
-        model = Occupants
-        exclude=['name']
+        model = Post
+        fields = [ 'description','categories','post_image']
 
 
-class BussinessForm(forms.ModelForm):
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+
     class Meta:
-        model=Bussiness
-        exclude = ['owner','neighborhood']
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
 
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_path','community']
+
+
+class CommunityModelForm(forms.ModelForm):
+    
+    class Meta:
+        model = Neighbourhood
+        fields = [ 'name','location',]
+
+class BusinessModelForm(forms.ModelForm):
+    
+    class Meta:
+        model = Business
+        fields = [ 'bsn_name','bsn_email']
+
+class CommentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Comment
+        fields = ['comment']
