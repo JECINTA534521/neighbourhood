@@ -16,16 +16,16 @@ As a user, You will:
 1. Sign in with the application to start using.
 2. Set up a profile about you and a general location and your neighborhood name.
 3. Find a list of different businesses in your neighborhood.
-4. Find Contact Information for the health department and Police authorities near your neighborhood.
 5. Create Posts that will be visible to everyone in your neighborhood.
 6. Change your neighborhood when you decide to move out.
 7. Only view details of a single neighborhood.
+
+## Live link at:
 
 
 ### Installing
 
 1. Clone this repo: git clone https://github.com/JECINTA534521/neighbourhood
-2. The repo comes in a zipped or compressed format. Extract to your prefered location and open it.
 3. open your terminal and navigate to gallery then create a virtual environment.For detailed guide refer  [here](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/)
 3. To run the app, you'll have to run the following commands in your terminal
     
