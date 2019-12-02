@@ -34,8 +34,8 @@ As a user, You will:
 4. On your terminal,Create database gallery using the command below.
 
 
-       CREATE DATABASE instaclone; 
-       **if you opt to use your own database name, replace instaclone your preferred name, then also update settings.py variable DATABASES > NAME
+       CREATE DATABASE nighbourhood; 
+       **if you opt to use your own database name, replace neighbourhood your preferred name, then also update settings.py variable DATABASES > NAME
 
 5. Migrate the database using the command below
 
