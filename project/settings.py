@@ -94,9 +94,9 @@ if config('MODE')=="dev":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME':'neighbor',
+            'NAME':'hood',
             'USER':'jecinta',
-            'PASSWORD': 'chrisbanina',
+            'PASSWORD': 'hoodie',
             'HOST': '127.0.0.1',
             'PORT': '',
     }
